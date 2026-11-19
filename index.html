@@ -1,0 +1,233 @@
+<!doctype html>
+<!--
+THESIS: A community pengajian directory that makes finding and joining a nearby gathering feel immediate, not administrative.
+OWN-WORLD: Sufara's teal emblem, charcoal lettering, and clear white surfaces carry the brand from header through footer.
+STORY: Visitors discover a location, choose a ustaz or ustazah, and register in one clear flow.
+FIRST VIEWPORT: A teal navigation band with the Sufara emblem, a direct Quran reminder, search, and a selectable location map.
+FORM: Public directory / Operate-first in the supplied Sufara logo palette.
+-->
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sufara Quran — Pengajian</title>
+  <meta name="description" content="Temukan lokasi pengajian dan pendaftaran ustaz serta ustazah terdekat.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Sufara Quran beranda">
+      <img class="brand-symbol" src="assets/sufara-symbol.png" alt="">
+      <span>SUFARA QURAN</span>
+    </a>
+    <nav class="main-nav" aria-label="Navigasi utama">
+      <a class="active" href="#beranda">Beranda</a>
+      <a href="#lokasi">Lokasi</a>
+      <a href="#ustaz">Ustaz &amp; Ustazah</a>
+    </nav>
+    <button class="nav-register" type="button" data-open-register>Daftar Sekarang</button>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-copy">
+        <p class="greeting">Assalamu’alaikum</p>
+        <h1>Sudahkah kamu membaca<br><em>Al-Quran hari ini?</em></h1>
+        <p class="hero-text">Belajar, berbagi, dan bertumbuh bersama komunitas yang membawa ilmu lebih dekat ke rumah.</p>
+        <div class="search-box" role="search">
+          <label for="locationSearch">
+            <span class="search-icon" aria-hidden="true"></span>
+            <input id="locationSearch" type="search" placeholder="Cari lokasi atau nama pengajian">
+          </label>
+          <button type="button" id="searchButton">Cari</button>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Peta pengajian Jakarta Selatan">
+        <div class="map-grid"></div>
+        <span class="district district-a">Kemang</span>
+        <span class="district district-b">Cilandak</span>
+        <span class="district district-c">Pondok Indah</span>
+        <button class="pin pin-a selected" type="button" data-location="Gedung 1" aria-label="Pilih Gedung 1" aria-pressed="true">
+          <span>1</span>
+        </button>
+        <button class="pin pin-b" type="button" data-location="Gedung 2" aria-label="Pilih Gedung 2" aria-pressed="false">
+          <span>2</span>
+        </button>
+        <button class="pin pin-c" type="button" data-location="Gedung 3" aria-label="Pilih Gedung 3" aria-pressed="false">
+          <span>3</span>
+        </button>
+        <article class="featured-place">
+          <div class="place-photo">
+            <img id="featuredImage" src="assets/masjid.svg" alt="Gedung 1">
+          </div>
+          <div>
+            <span class="status-dot" id="featuredSchedule">Ahad · 07.30</span>
+            <h2 id="featuredName">Gedung 1</h2>
+            <p id="featuredAddress">Jl. Kemang Raya No. 18, Mampang · 2.4 km</p>
+          </div>
+          <button type="button" id="featuredRegister" data-open-location="Gedung 1" aria-label="Daftar di Gedung 1">→</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="directory" id="lokasi">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Pilihan terdekat</p>
+          <h2>Lokasi pengajian</h2>
+        </div>
+        <button class="text-button" type="button" id="showAllLocations">Lihat semua <span>→</span></button>
+      </div>
+
+      <div class="location-list" id="locationList">
+        <article class="location-card" data-location-name="Gedung 1">
+          <div class="location-media">
+            <img src="assets/masjid.svg" alt="Gedung 1">
+            <span class="distance">2.4 km</span>
+          </div>
+          <div class="location-body">
+            <span class="schedule">Ahad · 07.30</span>
+            <h3>Gedung 1</h3>
+            <p>Jl. Kemang Raya No. 18, Mampang</p>
+            <button type="button" data-open-location="Gedung 1">Lihat jadwal</button>
+          </div>
+        </article>
+
+        <article class="location-card" data-location-name="Gedung 2">
+          <div class="location-media">
+            <img src="assets/majelis.svg" alt="Gedung 2">
+            <span class="distance">3.1 km</span>
+          </div>
+          <div class="location-body">
+            <span class="schedule">Sabtu · 15.30</span>
+            <h3>Gedung 2</h3>
+            <p>Jl. Radio Dalam No. 24, Kebayoran Baru</p>
+            <button type="button" data-open-location="Gedung 2">Lihat jadwal</button>
+          </div>
+        </article>
+
+        <article class="location-card" data-location-name="Gedung 3">
+          <div class="location-media">
+            <img src="assets/tahfidz.svg" alt="Gedung 3">
+            <span class="distance">4.8 km</span>
+          </div>
+          <div class="location-body">
+            <span class="schedule">Senin · 16.00</span>
+            <h3>Gedung 3</h3>
+            <p>Jl. Ciputat Raya No. 6, Cilandak</p>
+            <button type="button" data-open-location="Gedung 3">Lihat jadwal</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="teachers" id="ustaz">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Pemandu kajian</p>
+          <h2>Ustaz &amp; Ustazah pilihan</h2>
+        </div>
+        <div class="filter-tabs" role="tablist" aria-label="Filter pembimbing">
+          <button class="active" type="button" role="tab" aria-selected="true" data-filter="all">Semua</button>
+          <button type="button" role="tab" aria-selected="false" data-filter="ustaz">Ustaz</button>
+          <button type="button" role="tab" aria-selected="false" data-filter="ustazah">Ustazah</button>
+        </div>
+      </div>
+
+      <div class="teacher-list" id="teacherList">
+        <article class="teacher-card" data-type="ustaz">
+          <img src="assets/ustaz-ahmad.svg" alt="Ustaz Ahmad">
+          <div class="teacher-info">
+            <div>
+              <h3>Ustaz Ahmad Fikri</h3>
+              <p>Tafsir &amp; Akhlak</p>
+            </div>
+            <button type="button" data-profile="Ustaz Ahmad Fikri" aria-label="Profil Ustaz Ahmad Fikri">→</button>
+          </div>
+        </article>
+        <article class="teacher-card" data-type="ustazah">
+          <img src="assets/ustazah-maryam.svg" alt="Ustazah Maryam">
+          <div class="teacher-info">
+            <div>
+              <h3>Ustazah Maryam</h3>
+              <p>Fiqih Perempuan</p>
+            </div>
+            <button type="button" data-profile="Ustazah Maryam" aria-label="Profil Ustazah Maryam">→</button>
+          </div>
+        </article>
+        <article class="teacher-card" data-type="ustaz">
+          <img src="assets/ustaz-yusuf.svg" alt="Ustaz Yusuf">
+          <div class="teacher-info">
+            <div>
+              <h3>Ustaz Yusuf Hakim</h3>
+              <p>Hadis &amp; Tahsin</p>
+            </div>
+            <button type="button" data-profile="Ustaz Yusuf Hakim" aria-label="Profil Ustaz Yusuf Hakim">→</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-copy">
+      <h2>Info selengkapnya</h2>
+      <p>Hubungi kami untuk informasi lebih lanjut tentang Sufara Al-Quran.</p>
+    </div>
+    <div class="footer-contacts">
+      <a href="https://wa.me/6282287614924" target="_blank" rel="noopener noreferrer">
+        <span class="contact-label">WhatsApp</span>
+        <strong>0822 8761 4924</strong>
+      </a>
+      <a href="https://www.instagram.com/sufaraalquran/" target="_blank" rel="noopener noreferrer">
+        <span class="contact-label">Instagram</span>
+        <strong>@sufaraalquran</strong>
+      </a>
+    </div>
+  </footer>
+
+  <dialog class="register-dialog" id="registerDialog">
+    <button class="dialog-close" type="button" aria-label="Tutup" data-close-dialog>×</button>
+    <form id="registerForm">
+      <p class="dialog-kicker">Pendaftaran pengajian</p>
+      <h2>Ruang untuk bertumbuh</h2>
+      <div class="form-grid">
+        <label>Nama lengkap
+          <input name="name" type="text" required placeholder="Nama kamu">
+        </label>
+        <label>Nomor WhatsApp
+          <input name="phone" type="tel" required placeholder="08xxxxxxxxxx">
+        </label>
+        <label>Lokasi pengajian
+          <select name="location" id="locationSelect">
+            <option>Gedung 1</option>
+            <option>Gedung 2</option>
+            <option>Gedung 3</option>
+          </select>
+        </label>
+        <label>Jumlah peserta
+          <select name="participants">
+            <option>1 orang</option>
+            <option>2 orang</option>
+            <option>3 orang</option>
+            <option>Lebih dari 3</option>
+          </select>
+        </label>
+      </div>
+      <button class="submit-button" type="submit">Daftar Sekarang <span>→</span></button>
+    </form>
+  </dialog>
+
+  <dialog class="profile-dialog" id="profileDialog">
+    <button class="dialog-close" type="button" aria-label="Tutup" data-close-profile>×</button>
+    <div id="profileContent"></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
